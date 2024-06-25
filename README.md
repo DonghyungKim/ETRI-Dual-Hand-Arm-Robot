@@ -40,7 +40,35 @@ colcon build --symlink-install
 - `/sample_etri_dualarm_ctr/sample_discrete_ctr.py`: Sample code for sending sequential position commands to the robot.
 
 
-## ROS 2 Topic description
+## How to use
+
+#### Run etri_dialarm_ros2_ctr.usd in Isaac Sim
+Launch the Isaac Sim and open etri_dialarm_ros2_ctr.usd(File -> Open). Then ETRI's dual hand-arm robot will appear. Start the simulation by pressing play button ( :arrow_forward: ). If the USD file loads correctly without any issues, you can verify the list of topic messages in the terminal by using the `ros2 topic list` command.
+| Topic name | Description |
+|---|:---:|
+| `/joint_states` | Current state of the robot. The robot has totally 49 DOF, so the state consists of 49 values. For more details, refer to [2].|
+| `/joint_command` | 요소 자신을 기준으로 배치 |
+| `absolute` | 위치 상 부모(조상)요소를 기준으로 배치 |
+| `fixed` | 브라우저 창을 기준으로 배치 |
+| `/joint_states` | Current state of the robot |
+| `/joint_command` | 요소 자신을 기준으로 배치 |
+| `absolute` | 위치 상 부모(조상)요소를 기준으로 배치 |
+| `fixed` | 브라우저 창을 기준으로 배치 |
 
 
-
+```
+/head_camera_depth
+/head_camera_rgb
+/joint_command
+/joint_states
+/parameter_events
+/rosout
+/tf_left_arm_tool
+/tf_left_hand_root
+/tf_right_arm_tool
+/tf_right_hand_root
+/wrist_camera_left_depth
+/wrist_camera_left_rgb
+/wrist_camera_right_depth
+/wrist_camera_right_rgb
+```
