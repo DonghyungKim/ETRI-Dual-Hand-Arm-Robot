@@ -36,6 +36,11 @@ colcon build --symlink-install
 - `rsd455.usd`: USD file of Intel RealSense Camera D455.
 
 #### sample_etri_dualarm_ctr
-- '/sample_etri_dualarm_ctr/sample_cont_ctr.py':
-- '/sample_etri_dualarm_ctr/sample_discrete_ctr.py': 
+- `/sample_etri_dualarm_ctr/sample_cont_ctr.py`: Sample code for continuously controlling the robot's position at a 20Hz cycle.
+- `/sample_etri_dualarm_ctr/sample_discrete_ctr.py`: Sample code for sending sequential position commands to the robot.
+
+
+## ROS 2 Topic Message definition
+
+
 
