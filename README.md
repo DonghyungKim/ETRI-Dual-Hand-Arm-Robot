@@ -70,3 +70,9 @@ ros2 run sample_etri_dualarm_ctr sample_discrete_ctr
 We'll show you how to use the USD file for the dual hand-arm robot and the ROS 2 package for joint position control that we provide.
 
 
+( :construction: Under Construction! :construction: )
+
+
+## Acknowledgements
+This work was supported by Electronics and Telecommunications Research Institute (ETRI) grant funded by the Korean government foundation. [24ZB1200, Research of Human-centered autonomous intelligence system original technology]
+
