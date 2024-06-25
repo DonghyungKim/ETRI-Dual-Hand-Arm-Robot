@@ -53,14 +53,17 @@ Launch the Isaac Sim and open etri_dialarm_ros2_ctr.usd(File -> Open). Then ETRI
 | `/tf_left_arm_tool`, `/tf_left_hand_root`, `/tf_right_arm_tool`, `/tf_right_hand_root` | Position and orientation of robot's tool frame/hand root frame with respect to base frame |
 
 #### Run Sample code (ROS 2 package)
-While Isaac Sim is running etri_dialarm_ros2_ctr.usd, enter the following command in the terminal. This will execute the sample_cont_ctr.py code, which sends the robot's joint positions at a 20Hz cycle.
+While Isaac Sim is running with __etri_dialarm_ros2_ctr.usd__, enter the following command in the terminal. This will execute the sample_cont_ctr.py code, which sends the robot's joint positions at a 20Hz cycle.
 ```
 ros2 run sample_etri_dualarm_ctr sample_cont_ctr
 ```
+<center><img src="https://github.com/DonghyungKim/ETRI-Dual-Hand-Arm-Robot/blob/main/docs/etri_dualarm_sample_cont.gif" width="407" height="321"/></center>
+
 Let's run another sample code that send sequential joint position commands to the robot(sample_discrete_ctr.py):
 ```
 ros2 run sample_etri_dualarm_ctr sample_discrete_ctr
 ```
+<center><img src="https://github.com/DonghyungKim/ETRI-Dual-Hand-Arm-Robot/blob/main/docs/etri_dualarm_sample_discrete.gif" width="407" height="321"/></center>
 
 
 
