@@ -46,7 +46,7 @@ colcon build --symlink-install
 Launch the Isaac Sim and open etri_dialarm_ros2_ctr.usd(File -> Open). Then ETRI's dual hand-arm robot will appear. Start the simulation by pressing play button ( :arrow_forward: ). If the USD file loads correctly without any issues, you can verify the list of topic messages in the terminal by using the `ros2 topic list` command.
 | Topic name | Description |
 |---|:---:|
-| `/joint_states` | Current state of the robot. The robot has totally 49 DOF, so the state consists of 49 values. For more details, refer to [2].|
+| `/joint_states` | Current state of the robot. The robot has totally 49 DOF, so the state consists of 49 values. For more details, refer to 'description of ETRI's dual hand-arm robot'.|
 | `/joint_command` | Joint position command. Once user sends this joint position command to the Isaac Sim simulator, the controller within the simulator moves the robot's joints to the desired positions. |
 | `/head_camera_rgb`, `/head_camera_depth` | RGB/Depth image of robot's head camera (Intel RealSense D455 from the Isaac Sim assets) |
 | `/wrist_camera_left_rgb`, `/wrist_camera_left_depth`, `/wrist_camera_right_rgb`, `/wrist_camera_right_depth` | RGB/Depth image of robot's wrist camera (Intel RealSense D455 from the Isaac Sim assets) |
@@ -66,5 +66,7 @@ ros2 run sample_etri_dualarm_ctr sample_discrete_ctr
 <center><img src="https://github.com/DonghyungKim/ETRI-Dual-Hand-Arm-Robot/blob/main/docs/etri_dualarm_sample_discrete.gif" width="407" height="321"/></center>
 
 
+## How to Use
+We'll show you how to use the USD file for the dual hand-arm robot and the ROS 2 package for joint position control that we provide.
 
 
