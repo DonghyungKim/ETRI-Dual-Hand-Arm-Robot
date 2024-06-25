@@ -1,5 +1,6 @@
 # ETRI's Dual Hand-Arm Robot in Issac Sim
 Here we provide USD files and ROS 2 package for ETRI's dual hand-arm robot in Isaac Sim, designed for manipulation skill learning.
+
 <img src="https://github.com/DonghyungKim/ETRI-Dual-Hand-Arm-Robot/blob/main/etri_dualarm_prototype_isaacsim_test_grasp_success.gif" width="485" height="350"/>
 <img src="https://github.com/DonghyungKim/ETRI-Dual-Hand-Arm-Robot/blob/main/etri_dualarm_prototype_isaacsim_test_grasp_with_head_cam.gif" width="1020" height="350"/>
 
