@@ -11,4 +11,18 @@ Here we provide USD files and ROS 2 package for ETRI's dual hand-arm robot in Is
 *NOTE: It is recommended to perform [1] in advance to ensure Isaac Sim's compatibility with ROS 2. Also intermediate or higher ROS 2 skills are required.
 
 ## Installation
+Clone this git repository using the command line or download zip.
+```
+git clone https://github.com/DonghyungKim/ETRI-Dual-Hand-Arm-Robot.git
+```
+Copy __usd_files__ folder to your IsaacSim workspace and __sample_etri_dualarm_ctr__ folder to the __src__ directory of your ROS 2 workspace. And build your ROS 2 workspace.
+
+- __usd_files__ can be placed in any folder chosen by the user
+- Let's say your ROS 2 workspace is ~/robot_ws, then the path to __sample_etri_dualarm_ctr__ should be ~/robot_ws/src/sample_etri_dualarm_ctr. You need to run colcon build, e.g.
+```
+cd ~/robot_ws/src
+colcon build --symlink-install
+```
+
+
 
