@@ -1,18 +1,21 @@
 # ETRI's Dual Hand-Arm Robot in Issac Sim
-Here we provide USD files and ROS 2 package for ETRI's dual hand-arm robot in Isaac Sim, designed for manipulation skill learning.
+Here we provide USD files and ROS 2 package for ETRI's dual hand-arm robot in Isaac Sim, designed for manipulation skill learning. ETRI's dual hand-arm is a 49 DOF robot consisting of two sets of Kinova Gen3 arms and Allegro Hands. For more details on the robot configuration, refer to [this documentation](https://underconstruction.com)
 
 <img src="https://github.com/DonghyungKim/ETRI-Dual-Hand-Arm-Robot/blob/main/docs/etri_dualarm_prototype_isaacsim_test_grasp_success.gif" width="485" height="350"/>
 <img src="https://github.com/DonghyungKim/ETRI-Dual-Hand-Arm-Robot/blob/main/docs/etri_dualarm_prototype_isaacsim_test_grasp_with_head_cam.gif" width="1020" height="350"/>
 
 
 ## Prerequisites
+
+Intermediate or higher-level skills in both ROS 2 and Isaac Sim are required. And here is the version of ROS 2 and Isaac Sim that we used:
+
 #### NVIDIA Omniverse / Isaac Sim
 - Omniverse Launcher 1.9.11
 - Isaac Sim 2023.1.1
 #### ROS
 - ROS 2 Humble Hawksbill (Ubuntu 22.04.4 LTS)
 
-*NOTE: It is recommended to perform [1] in advance to ensure Isaac Sim's compatibility with ROS 2. Also intermediate or higher ROS 2 skills are required.
+*NOTE:  It is recommended to perform ['ROS and ROS 2 Installation for Isaac Sim'](https://docs.omniverse.nvidia.com/isaacsim/latest/installation/install_ros.html) in advance to ensure Isaac Sim's compatibility with ROS 2.
 
 ## Installation
 Clone this git repository using the command line or download zip.
@@ -52,7 +55,7 @@ Launch the Isaac Sim and open etri_dualarm_ros2_ctr.usd(File -> Open). Then ETRI
 | `/wrist_camera_left_rgb`, `/wrist_camera_left_depth`, `/wrist_camera_right_rgb`, `/wrist_camera_right_depth` | RGB/Depth image of robot's wrist camera (Intel RealSense D455 from the Isaac Sim assets) |
 | `/tf_left_arm_tool`, `/tf_left_hand_root`, `/tf_right_arm_tool`, `/tf_right_hand_root` | Position and orientation of robot's tool frame/hand root frame with respect to base frame |
 
-Referring to the Stage panel in Isaac Sim, it has the following features:
+Referring to the Stage panel in Isaac Sim, key features here are as follows:
 - Please note that the robot in __etri_dualarm_ros2_ctr.usd__ is different from the robot in __etri_dualarm_prototype.usd__, as we have tuned various parameter values such as Joint Drive Gains through trial and error.
 - As seen in the ActionGraph, __etri_dualarm_ros2_ctr.usd__ not only utilizes Omnigraph nodes for ROS 2 message communication but also controls the robot's joint positions using the Articulation Controller.
 
@@ -73,16 +76,26 @@ We will cover the details of the sample code in the next section.
 
 ## How to Use
 
+This chapter describes how to use ETRI's dual hand-arm robot to your research.
+
 #### Preperation
-Let's make a copy of __etri_dualarm_ros2_ctr.usd__ and rename it. Since we are going to use new environment called 'simple room' with the robot, the name of the new file is:
+For your Let's make a copy of __etri_dualarm_ros2_ctr.usd__ and rename it. Since we are going to use new environment called 'simple room' with the robot, the name of the new file is:
 ```
 etri_dualarm_simple_room_example.usd
 ```
 
+#### Change the environment and add the objects
 
-#### Create a copy of the main USD file
-
-
+Let's use the simple room from the [Environment Assets](https://docs.omniverse.nvidia.com/isaacsim/latest/features/environment_setup/assets/usd_assets_environments.html). In version 2023.1.1, the USD file path for the simple room is as follows. Delete the default environment and add the simple room. Then, change the position and orientation of the robot and the room as you want.
+```
+omniverse://localhost/NVIDIA/Assets/Isaac/2023.1.1/Isaac/Environments/Simple_Room/simple_room.usd
+```
+Let's add objects like [YCB objects](https://www.ycbbenchmarks.com/object-set/) to the simple room. The following is the path to the USD file.
+```
+omniverse://localhost/NVIDIA/Assets/Isaac/2023.1.1/Isaac/Props/YCB/
+```
+Here are examples of using various environments from Isaac Sim's assets, including the simple room.
+<center><img src="https://github.com/DonghyungKim/ETRI-Dual-Hand-Arm-Robot/blob/main/docs/example_environments.jpg" width="990" height="176"/></center>
 
 
 ( :construction: Under Construction! :construction: )
