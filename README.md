@@ -84,7 +84,7 @@ For your Let's make a copy of __etri_dualarm_ros2_ctr.usd__ and rename it. Since
 etri_dualarm_simple_room_example.usd
 ```
 
-#### Change the environment and add the objects
+#### Changing the environment and adding the objects
 
 Let's use the simple room from the [Environment Assets](https://docs.omniverse.nvidia.com/isaacsim/latest/features/environment_setup/assets/usd_assets_environments.html). In version 2023.1.1, the USD file path for the simple room is as follows. Delete the default environment and add the simple room. Then, change the position and orientation of the robot and the room as you want.
 ```
@@ -96,6 +96,51 @@ omniverse://localhost/NVIDIA/Assets/Isaac/2023.1.1/Isaac/Props/YCB/
 ```
 Here are examples of using various environments from Isaac Sim's assets, including the simple room.
 <center><img src="https://github.com/DonghyungKim/ETRI-Dual-Hand-Arm-Robot/blob/main/docs/example_environments.jpg" width="990" height="176"/></center>
+
+We suggest you start by using the assets in Isaac Sim. Feel free to make your own custom environment.
+
+#### Setting initial joint positions
+
+The default joint positions of the robot needed to be changed depending on the robot's task and environments. You can modify the initial joint positions using the Physics Inspector, such as the joint angles of the robot arm, the pan/tilt angles of the camera head, and the stroke length of the lifting column. Refer to the details on the Physics Inspector [here](https://docs.omniverse.nvidia.com/extensions/latest/ext_physics/support-ui.html#physics-inspector).
+
+<center><img src="https://github.com/DonghyungKim/ETRI-Dual-Hand-Arm-Robot/blob/main/docs/setting_init_joint_pos.png" width="500" height="386"/></center>
+
+#### Using sample code to control the robot
+
+Try applying the sample code from the previous section to your own robot application.
+
+1. `/sample_etri_dualarm_ctr/sample_cont_ctr.py`
+
+Within the JointCommandPublisherContinuous class, self.default_joint represents the default joint position for the robot. The input_49dof_joint_position function takes the joint positions as arguments and returns them as a list. Since there are 49 joint position values to input, this method is used to prevent confusion when entering them manually.
+
+```python
+self.default_joints = input_49dof_joint_position(0.4,
+                                                  0, 1.0559,
+                                                  1.5708, -1.5708, 1.5708, -1.5708, 0, 0, 0,
+                                                  1.5708, 1.5708, -1.5708, 1.5708, 0, 0, 0,
+                                                  0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+                                                  0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0)
+```
+
+
+```python
+# limiting the movements to a smaller range (this is not the range of the robot, just the range of the sinusoidal motion)
+self.max_joints = np.array(self.default_joints) + 0.3
+self.min_joints = np.array(self.default_joints) - 0.3
+
+# position control the robot to wiggle around each joint
+self.time_start = time.time()
+
+timer_period = 0.05  # seconds
+self.timer = self.create_timer(timer_period, self.timer_callback)
+
+```
+
+
+
+2. `/sample_etri_dualarm_ctr/sample_discrete_ctr.py`
+
+
 
 
 ( :construction: Under Construction! :construction: )
