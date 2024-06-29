@@ -122,6 +122,7 @@ self.default_joints = input_49dof_joint_position(0.4,
                                                   0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0)
 ```
 
+The maximum and minimum displacement values for the sinusoidal motion were set to 0.3 radians to generate a sinusoidal motion within the range of ±0.3 radians from the default joint position. Additionally, the `timer_period` for the `timer_callback` was set to 0.5 seconds to match the 20Hz control frequency of Isaac Sim's Articulation Controller
 
 ```python
 # limiting the movements to a smaller range (this is not the range of the robot, just the range of the sinusoidal motion)
@@ -136,10 +137,38 @@ self.timer = self.create_timer(timer_period, self.timer_callback)
 
 ```
 
+In the following `timer_callback` function, the joint position generated using the sine function was assigned to `self.joint_state.position`. You can delete this part and write your own code.
 
+```python
+def timer_callback(self):
+    # Set the time stamp
+    self.joint_state.header.stamp = self.get_clock().now().to_msg()
+
+    ##################################
+    #         Your code here         #
+    ##################################
+    #   => You can write code here that determines the desired joint positions, which will be published at a 20Hz frequency
+    #   => This example generates sinusoidal motion for joints
+    joint_position = (
+        np.sin(time.time() - self.time_start) * (self.max_joints - self.min_joints) * 0.5 + self.default_joints
+    )
+    self.joint_state.position = joint_position.tolist()
+
+    # Publish the message to the /joint_command topic
+    if is_valid_joint_command(self.joint_state.position):
+        self.publisher_.publish(self.joint_state)
+```
 
 2. `/sample_etri_dualarm_ctr/sample_discrete_ctr.py`
 
+In the main function, five demo joint positions, from `demo_pose_1` to `demo_pose_5`, are defined. The `send_joint_command` function is used to publish topic messages, and the `sleep` function is used to wait while the robot moves to the commanded joint positions. You can delete or modify this part to repeatedly publish the desired joint position and wait for the robot to move accordingly.
+
+```python
+joint_command_publisher_discrete.send_joint_command(demo_pose_1)
+time.sleep(6.0)  # seconds
+```
+
+Here, we have arbitrarily set the waiting time, but the user can modify the code so that the next target joint position is automatically published when the current joint position reaches the target joint position by using the `timer_callback` function.
 
 
 
