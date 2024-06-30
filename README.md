@@ -1,5 +1,5 @@
 # ETRI's Dual Hand-Arm Robot in Issac Sim
-Here we provide USD files and ROS 2 package for ETRI's dual hand-arm robot in Isaac Sim, designed for manipulation skill learning. ETRI's dual hand-arm is a 49 DOF robot consisting of two sets of Kinova Gen3 arms and Allegro Hands. For more details on the robot configuration, refer to [this documentation](https://underconstruction.com)
+Here we provide USD files and ROS 2 package for ETRI's dual hand-arm robot in Isaac Sim, designed for manipulation skill learning. ETRI's dual hand-arm is a 49 DOF robot consisting of two sets of Kinova Gen3 arms and Allegro Hands. For more details on the robot system, refer to [this documentation](https://github.com/DonghyungKim/ETRI-Dual-Hand-Arm-Robot/blob/main/docs/README_details_etri_dual_hand_arm_system.md)
 
 <img src="https://github.com/DonghyungKim/ETRI-Dual-Hand-Arm-Robot/blob/main/docs/etri_dualarm_prototype_isaacsim_test_grasp_success.gif" width="485" height="350"/>
 <img src="https://github.com/DonghyungKim/ETRI-Dual-Hand-Arm-Robot/blob/main/docs/etri_dualarm_prototype_isaacsim_test_grasp_with_head_cam.gif" width="1020" height="350"/>
