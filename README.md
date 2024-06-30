@@ -171,10 +171,6 @@ time.sleep(6.0)  # seconds
 Here, we have arbitrarily set the waiting time, but the user can modify the code so that the next target joint position is automatically published when the current joint position reaches the target joint position by using the `timer_callback` function.
 
 
-
-( :construction: Under Construction! :construction: )
-
-
 ## Acknowledgements
 This work was supported by Electronics and Telecommunications Research Institute (ETRI) grant funded by the Korean government foundation. [24ZB1200, Research of Human-centered autonomous intelligence system original technology]
 
