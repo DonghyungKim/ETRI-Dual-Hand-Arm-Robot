@@ -29,6 +29,5 @@ With 49 degrees of freedom (DOF), the robot has many links and joints, making it
 
 The robot has a total of three cameras: one on the head and one on each wrist. All three cameras are modeled as Intel RealSense D455 in Isaac Sim, so all specifications are identical to those of the D455. Currently, the cameras provide RGB and Depth images as output. The following is an example of publishing images from the three cameras as individual ROS 2 Topic messages and visualizing them in RViz.
 
-<center><img src="https://github.com/DonghyungKim/ETRI-Dual-Hand-Arm-Robot/blob/main/docs/example_camera_rgb_img.png" width="600" height="422"/></center>
-<center><img src="https://github.com/DonghyungKim/ETRI-Dual-Hand-Arm-Robot/blob/main/docs/example_camera_depth_img.png" width="600" height="422"/></center>
-
+<center><img src="https://github.com/DonghyungKim/ETRI-Dual-Hand-Arm-Robot/blob/main/docs/example_camera_rgb_img.png" width="700" height="492"/></center>
+<center><img src="https://github.com/DonghyungKim/ETRI-Dual-Hand-Arm-Robot/blob/main/docs/example_camera_depth_img.png" width="700" height="492"/></center>
