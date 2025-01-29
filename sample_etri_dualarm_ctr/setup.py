@@ -20,8 +20,9 @@ setup(
     tests_require=['pytest'],
     entry_points={
         'console_scripts': [
-                'sample_cont_ctr = sample_etri_dualarm_ctr.sample_cont_ctr:main',
-                'sample_discrete_ctr = sample_etri_dualarm_ctr.sample_discrete_ctr:main'
+                'sample_sinusoidal_joint_pos_ctrl = sample_etri_dualarm_ctr.sample_sinusoidal_joint_pos_ctrl:main',
+                'sample_sequence_joint_pos_ctr = sample_etri_dualarm_ctr.sample_sequence_joint_pos_ctr:main',
+                'sample_sinusoidal_arm_vel_ctrl = sample_etri_dualarm_ctr.sample_sinusoidal_arm_vel_ctrl:main'
         ],
     },
 )
