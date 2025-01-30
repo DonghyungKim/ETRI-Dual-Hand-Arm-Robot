@@ -48,7 +48,7 @@ The default control for the robot joints is position control. However, in cases 
 #### Sample codes (/sample_etri_dualarm_ctr)
 - `/sample_etri_dualarm_ctr/sample_sequence_joint_pos_ctr.py`: Sample code for sending sequential joint position commands to the robot.
 - `/sample_etri_dualarm_ctr/sample_sinusoidal_joint_pos_ctrl.py`: Sample code for sending sinusoidal joint position commands to the robot
-- `/sample_etri_dualarm_ctr/sample_sinusoidal_arm_vel_ctrl.py`: Sample code for sending sinusoidal joint velocity commands for the arms, and position commands for all other joints.
+- `/sample_etri_dualarm_ctr/sample_sinusoidal_arm_vel_ctrl.py`: Sample code for sending sinusoidal joint velocity commands for the arms and position commands for all other joints.
 
 
 ## How to Run
@@ -68,12 +68,12 @@ Referring to the Stage panel in Isaac Sim, key features here are as follows:
 - As seen in the ActionGraph, __etri_dualarm_ros2_ctr.usd__ not only utilizes Omnigraph nodes for ROS 2 message communication but also controls the robot's joint positions using the Articulation Controller.
 
 #### Run the command message converter
-For the position control(49 DOF position control), 
+If you want to run the command message converter for position control:
 ```
 ros2 run etri_dualarm_cmd_msg_converter_sim run_both_arms_pos_ctrl
 ```
 
-For the velocity control of the both arms's joints and the position control of all other joints(7X2 DOF velocity control + 35 DOF position control), you need to first specify the control frequency of the command and input to the argument hz for the node. Let say the frequency is 30 Hz, the
+If you want to run the command message converter with velocity control for the arm joints only and position control for all other joints, you need to know the control frequency clearly. Then, you must enter this control frequency value as the argument __hz__ for the node. For example, if the control frequency is 30 Hz:
 ```
 ros2 run etri_dualarm_cmd_msg_converter_sim run_both_arms_vel_ctrl hz:=30
 ```
