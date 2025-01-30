@@ -60,8 +60,8 @@ Launch the Isaac Sim and open etri_dualarm_ros2_ctr.usd(File -> Open). Then ETRI
 | `/joint_states` | Current state of the robot. The robot has totally 49 DOF, so the state consists of 49 values. For more details, refer to 'description of ETRI's dual hand-arm robot'.|
 | `/joint_command` | Joint position command. Once user sends this joint position command to the Isaac Sim simulator, the controller within the simulator moves the robot's joints to the desired positions. |
 | `/head_camera/color/camera_info`, `/head_camera/color/image_raw`, `/head_camera/depth/camera_info`, `/head_camera/depth/image_rect_raw`, `/head_camera/depth/color/points` | The published topics related to the robot's head camera |
-| `/wrist_camera_left_rgb`, `/wrist_camera_left_depth`, `/wrist_camera_right_rgb`, `/wrist_camera_right_depth` | RGB/Depth image of robot's wrist camera (Intel RealSense D455 from the Isaac Sim assets) |
-| `/tf_left_arm_tool`, `/tf_left_hand_root`, `/tf_right_arm_tool`, `/tf_right_hand_root` | Transformation information for the robot's tool frames and camera frames |
+| `/left_wrist_camera/color/camera_info`, `/left_wrist_camera/color/image_raw`, `/left_wrist_camera/depth/camera_info`, `/left_wrist_camera/depth/image_raw`, `/right_wrist_camera/color/camera_info`, `/right_wrist_camera/color/image_raw`, `/right_wrist_camera/depth/camera_info`, `/right_wrist_camera/depth/image_raw` | The published topics related to the robot's wrist camera  |
+| `/tf_left_arm_tool`, `/tf_left_hand_root`, `/tf_right_arm_tool`, `/tf_right_hand_root` | Transform information (TF) for the robot's tool frames and camera frames relative to the base link |
 
 Referring to the Stage panel in Isaac Sim, key features here are as follows:
 - Please note that the robot in __etri_dualarm_ros2_ctr.usd__ is different from the robot in __etri_dualarm_prototype.usd__, as we have tuned various parameter values such as Joint Drive Gains through trial and error.
