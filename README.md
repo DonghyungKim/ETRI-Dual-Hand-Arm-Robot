@@ -53,7 +53,7 @@ The default control for the robot joints is position control. However, in cases 
 
 ## How to Run
 
-#### Open etri_dualarm_ros2_ctr.usd in Isaac Sim
+#### 1. Open etri_dualarm_ros2_ctr.usd in Isaac Sim
 Launch the Isaac Sim and open etri_dualarm_ros2_ctr.usd(File -> Open). Then ETRI's dual hand-arm robot will appear in the Viewport. Start the simulation by pressing play button ( :arrow_forward: ). If the USD file loads correctly without any issues, you can verify the list of topic messages in the terminal by using the `ros2 topic list` command.
 | Topic name | Description |
 |---|:---:|
@@ -67,8 +67,8 @@ Referring to the Stage panel in Isaac Sim, key features here are as follows:
 - Please note that the robot in __etri_dualarm_ros2_ctr.usd__ is different from the robot in __etri_dualarm_robot.usd__, as we have tuned various parameter values such as Joint Drive Gains through trial and error.
 - As seen in the ActionGraph, __etri_dualarm_ros2_ctr.usd__ not only utilizes Omnigraph nodes for ROS 2 message communication but also controls the robot's joint positions using the Articulation Controller.
 
-#### Run the command message converter
-After the robot appears in Isaac Sim, you must run the command message converter. This is ROS 2 node that convert `/joint_command` to `/joint_command_isaac` which is suitable joint commands for Isaac Sim.
+#### 2. Run the command message converter
+After tarting the simulation, you must run the command message converter. This is ROS 2 node that convert `/joint_command` to `/joint_command_isaac` which is suitable joint commands for Isaac Sim.
 
 If you want to run the command message converter for position control:
 ```
@@ -80,11 +80,18 @@ If you want to run the command message converter with velocity control for the a
 ros2 run etri_dualarm_cmd_msg_converter_sim run_both_arms_vel_ctrl hz:=30
 ```
 
-Now you are ready to move the robot! But before you publish `/joint_command` with your own program, I recommand to test the sample code first.
+Now you're ready to move the robot! Try running the sample code before writing your own application code.
 
 
-#### Run Sample code (ROS 2 package)
-While Isaac Sim is running with __etri_dualarm_ros2_ctr.usd__, enter the following command in the terminal. This will execute the sample_cont_ctr.py code, which sends the robot's joint positions at a 20Hz cycle.
+## Run Sample code (ROS 2 package)
+
+#### For 49 DOF position control
+
+
+#### For 7X2 DOF velocity control(two arms) + 35 DOF position control
+
+
+While Isaac Sim and is running with __etri_dualarm_ros2_ctr.usd__, enter the following command in the terminal. This will execute the sample_cont_ctr.py code, which sends the robot's joint positions at a 20Hz cycle.
 ```
 ros2 run sample_etri_dualarm_ctr sample_cont_ctr
 ```
@@ -128,71 +135,6 @@ We suggest you start by using the assets in Isaac Sim. Feel free to make your ow
 The default joint positions of the robot needed to be changed depending on the robot's task and environments. You can modify the initial joint positions using the Physics Inspector, such as the joint angles of the robot arm, the pan/tilt angles of the camera head, and the stroke length of the lifting column. Refer to the details on the Physics Inspector [here](https://docs.omniverse.nvidia.com/extensions/latest/ext_physics/support-ui.html#physics-inspector).
 
 <center><img src="https://github.com/DonghyungKim/ETRI-Dual-Hand-Arm-Robot/blob/main/docs/setting_init_joint_pos.png" width="500" height="386"/></center>
-
-#### Using sample code to control the robot
-
-Try applying the sample code from the previous section to your own robot application.
-
-1. `/sample_etri_dualarm_ctr/sample_cont_ctr.py`
-
-Within the JointCommandPublisherContinuous class, self.default_joint represents the default joint position for the robot. The input_49dof_joint_position function takes the joint positions as arguments and returns them as a list. Since there are 49 joint position values to input, this method is used to prevent confusion when entering them manually.
-
-```python
-self.default_joints = input_49dof_joint_position(0.4,
-                                                  0, 1.0559,
-                                                  1.5708, -1.5708, 1.5708, -1.5708, 0, 0, 0,
-                                                  1.5708, 1.5708, -1.5708, 1.5708, 0, 0, 0,
-                                                  0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
-                                                  0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0)
-```
-
-The maximum and minimum displacement values for the sinusoidal motion were set to 0.3 radians to generate a sinusoidal motion within the range of ±0.3 radians from the default joint position. Additionally, the `timer_period` for the `timer_callback` was set to 0.5 seconds to match the 20Hz control frequency of Isaac Sim's Articulation Controller
-
-```python
-# limiting the movements to a smaller range (this is not the range of the robot, just the range of the sinusoidal motion)
-self.max_joints = np.array(self.default_joints) + 0.3
-self.min_joints = np.array(self.default_joints) - 0.3
-
-# position control the robot to wiggle around each joint
-self.time_start = time.time()
-
-timer_period = 0.05  # seconds
-self.timer = self.create_timer(timer_period, self.timer_callback)
-
-```
-
-In the following `timer_callback` function, the joint position generated using the sine function was assigned to `self.joint_state.position`. You can delete this part and write your own code.
-
-```python
-def timer_callback(self):
-    # Set the time stamp
-    self.joint_state.header.stamp = self.get_clock().now().to_msg()
-
-    ##################################
-    #         Your code here         #
-    ##################################
-    #   => You can write code here that determines the desired joint positions, which will be published at a 20Hz frequency
-    #   => This example generates sinusoidal motion for joints
-    joint_position = (
-        np.sin(time.time() - self.time_start) * (self.max_joints - self.min_joints) * 0.5 + self.default_joints
-    )
-    self.joint_state.position = joint_position.tolist()
-
-    # Publish the message to the /joint_command topic
-    if is_valid_joint_command(self.joint_state.position):
-        self.publisher_.publish(self.joint_state)
-```
-
-2. `/sample_etri_dualarm_ctr/sample_discrete_ctr.py`
-
-In the main function, five demo joint positions, from `demo_pose_1` to `demo_pose_5`, are defined. The `send_joint_command` function is used to publish topic messages, and the `sleep` function is used to wait while the robot moves to the commanded joint positions. You can delete or modify this part to repeatedly publish the desired joint position and wait for the robot to move accordingly.
-
-```python
-joint_command_publisher_discrete.send_joint_command(demo_pose_1)
-time.sleep(6.0)  # seconds
-```
-
-Here, we have arbitrarily set the waiting time, but the user can modify the code so that the next target joint position is automatically published when the current joint position reaches the target joint position by using the `timer_callback` function.
 
 
 ## Acknowledgements
