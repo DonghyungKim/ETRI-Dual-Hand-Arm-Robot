@@ -1,7 +1,8 @@
 # ETRI's Dual Hand-Arm Robot in Issac Sim
-Here I provide USD files and ROS 2 packages for ETRI's dual hand-arm robot in Isaac Sim, designed for manipulation skill learning. ETRI's dual hand-arm is a 49 DOF robot consisting of two sets of Kinova Gen3 arms and Allegro Hands(For more details on the robot system, refer to [this documentation](https://github.com/DonghyungKim/ETRI-Dual-Hand-Arm-Robot/blob/main/docs/README_details_etri_dual_hand_arm_system.md)). Using ROS 2 message communication, you can control this robot by sending joint commands and receiving feedback on the robot's joint states, camera images, and transform information at the same time.
+This repository provides USD files and ROS 2 packages for ETRI's dual hand-arm robot in Isaac Sim, designed for manipulation skill learning. ETRI's dual hand-arm is a 49 DOF robot consisting of two sets of Kinova Gen3 arms and Allegro Hands(For more details on the robot system, refer to [this documentation](https://github.com/DonghyungKim/ETRI-Dual-Hand-Arm-Robot/blob/main/docs/README_details_etri_dual_hand_arm_system.md)). Using ROS 2 message communication, you can control this robot by sending joint commands and receiving feedback on the robot's joint states, camera images, and transform information at the same time.
 
-<img src="https://github.com/DonghyungKim/ETRI-Dual-Hand-Arm-Robot/blob/main/docs/concept_controlling_etri_dualarm_robot.jpg" width="1011" height="343"/>
+![Interface between user's program and the robot in Isaac Sim](https://github.com/DonghyungKim/ETRI-Dual-Hand-Arm-Robot/blob/main/docs/concept_controlling_etri_dualarm_robot.jpg)
+
 <img src="https://github.com/DonghyungKim/ETRI-Dual-Hand-Arm-Robot/blob/main/docs/demo_grasping_two_ycb_objects_2x.gif" width="768" height="432"/>
 
 ## Prerequisites
