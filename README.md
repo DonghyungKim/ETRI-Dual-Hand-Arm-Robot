@@ -58,7 +58,7 @@ Launch the Isaac Sim and open etri_dualarm_ros2_ctr.usd(File -> Open). Then ETRI
 | Topic name | Description |
 |---|:---:|
 | `/joint_states_isaac` | The current state of the robot published by Isaac Sim. The robot has 49 DOF, but since the lifting column moves with two prismatic joints, the state consists of a total of 50 values. For more details, refer to 'description of ETRI's dual hand-arm robot'.|
-| `/joint_command_isaac` | The robot's joint command subscribed to by Isaac Sim. When the user publishes to /joint_command, this message is converted to /joint_command_isaac using the command message converter, and the controller within Isaac Sim moves the robot's joints. |
+| `/joint_command_isaac` | The robot's joint command subscribed to by Isaac Sim. When the user publishes to `/joint_command`, this message is converted to `/joint_command_isaac` using the command message converter, and the controller within Isaac Sim moves the robot's joints. |
 | `/head_camera/color/camera_info`, `/head_camera/color/image_raw`, `/head_camera/depth/camera_info`, `/head_camera/depth/image_rect_raw`, `/head_camera/depth/color/points` | The published topics related to the robot's head camera |
 | `/left_wrist_camera/color/camera_info`, `/left_wrist_camera/color/image_raw`, `/left_wrist_camera/depth/camera_info`, `/left_wrist_camera/depth/image_raw`, `/right_wrist_camera/color/camera_info`, `/right_wrist_camera/color/image_raw`, `/right_wrist_camera/depth/camera_info`, `/right_wrist_camera/depth/image_raw` | The published topics related to the robot's wrist camera  |
 | `/tf` | Transform information (TF) for the robot's tool frames and camera frames relative to the base link |
@@ -68,6 +68,8 @@ Referring to the Stage panel in Isaac Sim, key features here are as follows:
 - As seen in the ActionGraph, __etri_dualarm_ros2_ctr.usd__ not only utilizes Omnigraph nodes for ROS 2 message communication but also controls the robot's joint positions using the Articulation Controller.
 
 #### Run the command message converter
+After the robot appears in Isaac Sim, you must run the command message converter. This is ROS 2 node that convert `/joint_command` to `/joint_command_isaac` which is suitable joint commands for Isaac Sim.
+
 If you want to run the command message converter for position control:
 ```
 ros2 run etri_dualarm_cmd_msg_converter_sim run_both_arms_pos_ctrl
@@ -78,7 +80,7 @@ If you want to run the command message converter with velocity control for the a
 ros2 run etri_dualarm_cmd_msg_converter_sim run_both_arms_vel_ctrl hz:=30
 ```
 
-Now you are ready to move the robot! Publish `/joint_command` with your own program.
+Now you are ready to move the robot! But before you publish `/joint_command` with your own program, I recommand to test the sample code first.
 
 
 #### Run Sample code (ROS 2 package)
