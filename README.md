@@ -43,12 +43,12 @@ colcon build --symlink-install
 #### Command message converter (/etri_dualarm_cmd_msg_converter_sim): ROS 2 package that converts the user's joint commands into suitable joint commands for Isaac Sim.
 The default control for the robot joints is position control. However, in cases like visual servoing for teleoperation, some users prefer velocity control. Therefore, this repository provides two types of command message converters:
 - `/etri_dualarm_cmd_msg_converter_sim/run_both_arms_pos_ctrl.py`: Command message converter for position control (49 DOF position control).
-- `/etri_dualarm_cmd_msg_converter_sim/run_both_arms_pos_ctrl.py`: Command message converter with velocity control for the robot arm joints only, and position control for all other joints (7X2 DOF velocity control + 35 DOF position control)
+- `/etri_dualarm_cmd_msg_converter_sim/run_both_arms_pos_ctrl.py`: Command message converter with velocity control for the arm joints only, and position control for all other joints (7X2 DOF velocity control + 35 DOF position control)
 
-
-#### sample_etri_dualarm_ctr (Sample code folder)
-- `/sample_etri_dualarm_ctr/sample_cont_ctr.py`: Sample code for continuously sending the robot's joint position at a 20Hz cycle.
-- `/sample_etri_dualarm_ctr/sample_discrete_ctr.py`: Sample code for sending sequential joint position commands to the robot.
+#### Sample codes (/sample_etri_dualarm_ctr)
+- `/sample_etri_dualarm_ctr/sample_sequence_joint_pos_ctr.py`: Sample code for sending sequential joint position commands to the robot.
+- `/sample_etri_dualarm_ctr/sample_sinusoidal_joint_pos_ctrl.py`: Sample code for sending sinusoidal joint position commands to the robot
+- `/sample_etri_dualarm_ctr/sample_sinusoidal_arm_vel_ctrl.py`: Sample code for sending sinusoidal joint velocity commands for the arms, and position commands for all other joints.
 
 
 ## How to Run
