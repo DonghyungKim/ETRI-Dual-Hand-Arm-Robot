@@ -85,25 +85,29 @@ Now you're ready to move the robot! Try running the sample code before writing y
 
 ## Run Sample code (ROS 2 package)
 
-#### For 49 DOF position control
+After running Isaac Sim and the command message converter, let's execute the following sample code based on the type of converter.
 
+#### For 49 DOF position control
+The following node makes the robot's joint positions move in a sinusoidal pattern.
+```
+ros2 run sample_etri_dualarm_ctr sample_sinusoidal_joint_pos_ctrl
+```
+The following node makes the robot move through a sequence of 5 joint positions in order.
+```
+ros2 run sample_etri_dualarm_ctr sample_sequence_joint_pos_ctr
+```
 
 #### For 7X2 DOF velocity control(two arms) + 35 DOF position control
+The following node also moves the robot's joint positions in a sinusoidal pattern, but sends a velocity command instead.
+```
+ros2 run sample_etri_dualarm_ctr sample_sinusoidal_arm_vel_ctrl 
+```
+
+![Sinusoidal motion](https://github.com/DonghyungKim/ETRI-Dual-Hand-Arm-Robot/blob/main/docs/sample_sinusoidal_motion.gif)
+![sequence motion](https://github.com/DonghyungKim/ETRI-Dual-Hand-Arm-Robot/blob/main/docs/sample_sequence_motion.gif)
 
 
-While Isaac Sim and is running with __etri_dualarm_ros2_ctr.usd__, enter the following command in the terminal. This will execute the sample_cont_ctr.py code, which sends the robot's joint positions at a 20Hz cycle.
-```
-ros2 run sample_etri_dualarm_ctr sample_cont_ctr
-```
-<center><img src="https://github.com/DonghyungKim/ETRI-Dual-Hand-Arm-Robot/blob/main/docs/etri_dualarm_sample_cont.gif" width="407" height="321"/></center>
-
-Let's run another sample code that send sequential joint position commands to the robot(sample_discrete_ctr.py):
-```
-ros2 run sample_etri_dualarm_ctr sample_discrete_ctr
-```
-<center><img src="https://github.com/DonghyungKim/ETRI-Dual-Hand-Arm-Robot/blob/main/docs/etri_dualarm_sample_discrete.gif" width="407" height="321"/></center>
-
-We will cover the details of the sample code in the next section.
+I will cover the details of the sample code in here.
 
 ## How to Use
 
