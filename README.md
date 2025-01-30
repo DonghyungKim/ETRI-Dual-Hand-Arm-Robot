@@ -57,11 +57,11 @@ The default control for the robot joints is position control. However, in cases 
 Launch the Isaac Sim and open etri_dualarm_ros2_ctr.usd(File -> Open). Then ETRI's dual hand-arm robot will appear in the Viewport. Start the simulation by pressing play button ( :arrow_forward: ). If the USD file loads correctly without any issues, you can verify the list of topic messages in the terminal by using the `ros2 topic list` command.
 | Topic name | Description |
 |---|:---:|
-| `/joint_states` | Current state of the robot. The robot has totally 49 DOF, so the state consists of 49 values. For more details, refer to 'description of ETRI's dual hand-arm robot'.|
-| `/joint_command` | Joint position command. Once user sends this joint position command to the Isaac Sim simulator, the controller within the simulator moves the robot's joints to the desired positions. |
+| `/joint_states_isaac` | The current state of the robot published by Isaac Sim. The robot has 49 DOF, but since the lifting column moves with two prismatic joints, the state consists of a total of 50 values. For more details, refer to 'description of ETRI's dual hand-arm robot'.|
+| `/joint_command_isaac` | The robot's joint command subscribed to by Isaac Sim. When the user publishes to /joint_command, this message is converted to /joint_command_isaac using the command message converter, and the controller within Isaac Sim moves the robot's joints. |
 | `/head_camera/color/camera_info`, `/head_camera/color/image_raw`, `/head_camera/depth/camera_info`, `/head_camera/depth/image_rect_raw`, `/head_camera/depth/color/points` | The published topics related to the robot's head camera |
 | `/left_wrist_camera/color/camera_info`, `/left_wrist_camera/color/image_raw`, `/left_wrist_camera/depth/camera_info`, `/left_wrist_camera/depth/image_raw`, `/right_wrist_camera/color/camera_info`, `/right_wrist_camera/color/image_raw`, `/right_wrist_camera/depth/camera_info`, `/right_wrist_camera/depth/image_raw` | The published topics related to the robot's wrist camera  |
-| `/tf_left_arm_tool`, `/tf_left_hand_root`, `/tf_right_arm_tool`, `/tf_right_hand_root` | Transform information (TF) for the robot's tool frames and camera frames relative to the base link |
+| `/tf` | Transform information (TF) for the robot's tool frames and camera frames relative to the base link |
 
 Referring to the Stage panel in Isaac Sim, key features here are as follows:
 - Please note that the robot in __etri_dualarm_ros2_ctr.usd__ is different from the robot in __etri_dualarm_prototype.usd__, as we have tuned various parameter values such as Joint Drive Gains through trial and error.
