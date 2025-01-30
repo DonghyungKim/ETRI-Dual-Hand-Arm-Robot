@@ -53,7 +53,7 @@ The default control for the robot joints is position control. However, in cases 
 
 ## How to Run
 
-#### Run etri_dualarm_ros2_ctr.usd in Isaac Sim
+#### Open etri_dualarm_ros2_ctr.usd in Isaac Sim
 Launch the Isaac Sim and open etri_dualarm_ros2_ctr.usd(File -> Open). Then ETRI's dual hand-arm robot will appear in the Viewport. Start the simulation by pressing play button ( :arrow_forward: ). If the USD file loads correctly without any issues, you can verify the list of topic messages in the terminal by using the `ros2 topic list` command.
 | Topic name | Description |
 |---|:---:|
@@ -64,8 +64,20 @@ Launch the Isaac Sim and open etri_dualarm_ros2_ctr.usd(File -> Open). Then ETRI
 | `/tf` | Transform information (TF) for the robot's tool frames and camera frames relative to the base link |
 
 Referring to the Stage panel in Isaac Sim, key features here are as follows:
-- Please note that the robot in __etri_dualarm_ros2_ctr.usd__ is different from the robot in __etri_dualarm_prototype.usd__, as we have tuned various parameter values such as Joint Drive Gains through trial and error.
+- Please note that the robot in __etri_dualarm_ros2_ctr.usd__ is different from the robot in __etri_dualarm_robot.usd__, as we have tuned various parameter values such as Joint Drive Gains through trial and error.
 - As seen in the ActionGraph, __etri_dualarm_ros2_ctr.usd__ not only utilizes Omnigraph nodes for ROS 2 message communication but also controls the robot's joint positions using the Articulation Controller.
+
+#### Run the command message converter
+For the position control(49 DOF position control), 
+```
+ros2 run etri_dualarm_cmd_msg_converter_sim run_both_arms_pos_ctrl
+```
+
+For the velocity control of the both arms's joints and the position control of all other joints(7X2 DOF velocity control + 35 DOF position control), you need to first specify the control frequency of the command and input to the argument hz for the node. Let say the frequency is 30 Hz, the
+```
+ros2 run etri_dualarm_cmd_msg_converter_sim run_both_arms_vel_ctrl hz:=30
+```
+
 
 #### Run Sample code (ROS 2 package)
 While Isaac Sim is running with __etri_dualarm_ros2_ctr.usd__, enter the following command in the terminal. This will execute the sample_cont_ctr.py code, which sends the robot's joint positions at a 20Hz cycle.
