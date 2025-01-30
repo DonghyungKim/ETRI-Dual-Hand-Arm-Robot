@@ -73,10 +73,12 @@ If you want to run the command message converter for position control:
 ros2 run etri_dualarm_cmd_msg_converter_sim run_both_arms_pos_ctrl
 ```
 
-If you want to run the command message converter with velocity control for the arm joints only and position control for all other joints, you need to know the control frequency clearly. Then, you must enter this control frequency value as the argument __hz__ for the node. For example, if the control frequency is 30 Hz:
+If you want to run the command message converter with velocity control for the arm joints only and position control for all other joints, you need to know the control frequency clearly. Then, you must enter this control frequency value as the argument `hz` for the node. For example, if the control frequency is 30 Hz:
 ```
 ros2 run etri_dualarm_cmd_msg_converter_sim run_both_arms_vel_ctrl hz:=30
 ```
+
+Now you are ready to move the robot! Publish `/joint_command` with your own program.
 
 
 #### Run Sample code (ROS 2 package)
