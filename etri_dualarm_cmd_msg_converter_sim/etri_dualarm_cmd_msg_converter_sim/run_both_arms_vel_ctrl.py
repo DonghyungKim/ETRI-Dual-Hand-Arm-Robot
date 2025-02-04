@@ -1,3 +1,4 @@
+import time
 import rclpy
 from rclpy.node import Node
 from rclpy.qos import QoSProfile, QoSDurabilityPolicy, QoSReliabilityPolicy
@@ -35,6 +36,10 @@ class CommandMsgConverterSim(Node):
         self.joint_states = None  # To store the latest /joint_states_isaac message
         self.new_positions = {}  # Store calculated positions for integration
         self.dt = dt  # Set dt from argument
+        self.last_command_time = time.time()
+        self.command_timeout = 0.5  # Reset if no joint_command is received for a certain period
+
+        self.create_timer(0.1, self.check_command_timeout)  # 0.1초마다 확인
 
         self.get_logger().info('Command Message Converter Node has been started.')
 
@@ -49,8 +54,10 @@ class CommandMsgConverterSim(Node):
         Callback function to process incoming joint_command messages and
         publish converted messages to /joint_command_isaac.
         """
+        self.last_command_time = time.time()  # Update the last received time
+
         if self.joint_states is None:
-            self.get_logger().warning('No /joint_states_isaac message received yet. Skipping processing.')
+            #self.get_logger().warning('No /joint_states_isaac message received yet. Skipping processing.')
             return
 
         # Define the mapping between input and output joint names
@@ -146,6 +153,12 @@ class CommandMsgConverterSim(Node):
         # Publish the converted message
         self.publisher.publish(converted_msg)
         # self.get_logger().info(f'Published converted message to /joint_command_isaac: {converted_msg}')
+
+    def check_command_timeout(self):
+        if time.time() - self.last_command_time > self.command_timeout:
+            self.joint_states = None
+            self.new_positions = {}
+            # self.get_logger().warning('/joint_command timeout! Resetting joint_states and new_positions.')
 
 def main(args=None):
     rclpy.init(args=args)
