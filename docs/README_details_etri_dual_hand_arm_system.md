@@ -12,20 +12,17 @@ The structure of the robot is as follows: A lifting column is installed on the b
 
 ## TF information
 
-The transforms of important links of the robot, such as the end-effector frame, the root frame of the hand, and the camera frame, are published as '/tf' topic messages as follows.
+The transforms of important links of the robot, such as the tool frame, the root frame of the hand, and the camera frame, are published as `/tf` topic messages as follows. To see where each frame is attached, click on the corresponding Xform in the stage panel of IssacSim.
 
-| Frame ID  | Description |
-|---|:---:|
-| `lift_base_link` | The robot's base frame. It is located at the geometric center on bottom of the lifting column |
-| `right_`, `right_arm_base_link` | The base frame of the arm |
-| `left_arm_tool_frame`, `right_arm_tool_frame` | The tool frame of the arm |
-| `left_hand_root`, `right_hand_root` | The root frame of the hand |
+| Frame ID  |  Xform in the stage panel | the Stage Tre Description |
+|---|---|---|
+| `lift_base_link` | etri_dualarm_robot &rarr; lift_base_link | The robot's base frame. It is located at the geometric center on bottom of the lifting column |
+| `left_tool_frame`, `right_tool_frame` | etri_dualarm_robot &rarr; left_tool_frame and etri_dualarm_robot &rarr; right_tool_frame | The tool frame for each arm relative to `lift_base_link` |
+| `left_hand_root`, `right_hand_root` | etri_dualarm_robot &rarr; left_hand_root and etri_dualarm_robot &rarr; right_hand_root | The root frame for each hand relative to `lift_base_link` |
+| `head_camera:color`, `head_camera:depth` | etri_dualarm_robot &rarr; rsd455 &rarr; RSD455 &rarr; Visual &rarr; Camera_OmniVision_OV9782_Color and etri_dualarm_robot &rarr; rsd455 &rarr; RSD455 &rarr; Camera_Pseudo_Depth | The head camera's frame for RGB sensor and depth sensor relative to `lift_base_link` |
+| `left_camera_color_frame`, `left_camera_depth_frame`, `right_camera_color_frame`, `right_camera_depth_frame` | etri_dualarm_robot &rarr; left_camera_color_frame, etri_dualarm_robot &rarr; left_camera_depth_frame, etri_dualarm_robot &rarr; right_camera_color_frame, etri_dualarm_robot &rarr; right_camera_depth_frame | The wrist camera's frame for RGB sensor and depth sensor relative to `lift_base_link` |
 
 ![Frames](https://github.com/DonghyungKim/ETRI-Dual-Hand-Arm-Robot/blob/main/docs/robot_frames.jpg)
-
-With 49 degrees of freedom (DOF), the robot has many links and joints, making its kinematic chain very complex. You don't need to know everything, but for reference, the kinematic chain of the robot can be visualized in graph format from its URDF using `urdf_to_graphiz`. You can zoom in on the image by clicking
-
-<center><img src="https://github.com/DonghyungKim/ETRI-Dual-Hand-Arm-Robot/blob/main/docs/kinematic_chain_etri_dual_hand_arm.jpg" width="655" height="932"/></center>
 
 ## Cameras
 
