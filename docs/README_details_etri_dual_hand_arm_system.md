@@ -12,7 +12,7 @@ The structure of the robot is as follows: A lifting column is installed on the b
 
 ## TF information
 
-The transforms of important links of the robot, such as the tool frame, the root frame of the hand, and the camera frame, are published as `/tf` topic messages as follows. To see where each frame is attached, click on the corresponding Xform in the stage panel of IssacSim.
+The transforms of important links of the robot, such as the tool frame, the root frame of the hand, and the camera frame, are published as `/tf` topic messages. To see where each frame is attached, click on the corresponding Xform in the stage panel of IssacSim.
 
 | Frame ID  |  Xform in the stage panel | the Stage Tre Description |
 |---|---|---|
@@ -26,7 +26,7 @@ The transforms of important links of the robot, such as the tool frame, the root
 
 ## Cameras
 
-The robot has a total of three cameras: one on the head and one on each wrist. All three cameras are modeled as Intel RealSense D455 in Isaac Sim, so all specifications are identical to those of the D455. Currently, the cameras provide RGB and Depth images as output. The following is an example of publishing images from the three cameras as individual ROS 2 Topic messages and visualizing them in RViz.
+The robot has a total of three cameras: one on the head and one on each wrist. All cameras of the robot provide RGB and Depth images, and specifically, only the head camera additionally provides a point cloud, just like the actual D455. The following is an example of publishing images from the three cameras as individual ROS 2 Topic messages and visualizing them in RViz.
 
 <center><img src="https://github.com/DonghyungKim/ETRI-Dual-Hand-Arm-Robot/blob/main/docs/example_camera_rgb_img.png" width="700" height="492"/></center>
 <center><img src="https://github.com/DonghyungKim/ETRI-Dual-Hand-Arm-Robot/blob/main/docs/example_camera_depth_img.png" width="700" height="492"/></center>
