@@ -26,7 +26,6 @@ The transforms of important links of the robot, such as the tool frame, the root
 
 ## Cameras
 
-The robot has a total of three cameras: one on the head and one on each wrist. All cameras of the robot provide RGB and Depth images, and specifically, only the head camera additionally provides a point cloud, just like the actual D455. The following is an example of publishing images from the three cameras as individual ROS 2 Topic messages and visualizing them in RViz.
+The robot has a total of three cameras: one on the head and one on each wrist. All cameras of the robot provide RGB and Depth images, and specifically, only the head camera additionally provides a point cloud, just like the actual D455. The following is an example of RGB image and point cloud from the cameras in the Rviz2.
 
-<center><img src="https://github.com/DonghyungKim/ETRI-Dual-Hand-Arm-Robot/blob/main/docs/example_camera_rgb_img.png" width="700" height="492"/></center>
-<center><img src="https://github.com/DonghyungKim/ETRI-Dual-Hand-Arm-Robot/blob/main/docs/example_camera_depth_img.png" width="700" height="492"/></center>
+![Example of RGB image and point cloud from the cameras in the Rviz2](https://github.com/DonghyungKim/ETRI-Dual-Hand-Arm-Robot/blob/main/docs/example_rgb_img_and_point_cloud_in_rviz2.jpg)
