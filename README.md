@@ -59,8 +59,8 @@ Launch the Isaac Sim and open etri_dualarm_ros2_ctr.usd(File -> Open). Then ETRI
 |---|:---:|
 | `/joint_states_isaac` | The current state of the robot published by Isaac Sim. The robot has 49 DOF, but since the lifting column moves with two prismatic joints, the state consists of a total of 50 values. For more details, refer to 'description of ETRI's dual hand-arm robot'.|
 | `/joint_command_isaac` | The robot's joint command subscribed to by Isaac Sim. When the user publishes to `/joint_command`, this message is converted to `/joint_command_isaac` using the command message converter, and the controller within Isaac Sim moves the robot's joints. |
-| `/head_camera/color/camera_info`, `/head_camera/color/image_raw`, `/head_camera/depth/camera_info`, `/head_camera/depth/image_rect_raw`, `/head_camera/depth/color/points` | The published topics related to the robot's head camera |
-| `/left_wrist_camera/color/camera_info`, `/left_wrist_camera/color/image_raw`, `/left_wrist_camera/depth/camera_info`, `/left_wrist_camera/depth/image_raw`, `/right_wrist_camera/color/camera_info`, `/right_wrist_camera/color/image_raw`, `/right_wrist_camera/depth/camera_info`, `/right_wrist_camera/depth/image_raw` | The published topics related to the robot's wrist camera  |
+| `/head_camera/color/camera_info`, `/head_camera/color/image_raw`, `/head_camera/depth/camera_info`, `/head_camera/depth/image_rect_raw`, `/head_camera/depth/color/points` | The topics related to the robot's head camera (RGB, depth, point cloud) |
+| `/left_wrist_camera/color/camera_info`, `/left_wrist_camera/color/image_raw`, `/left_wrist_camera/depth/camera_info`, `/left_wrist_camera/depth/image_raw`, `/right_wrist_camera/color/camera_info`, `/right_wrist_camera/color/image_raw`, `/right_wrist_camera/depth/camera_info`, `/right_wrist_camera/depth/image_raw` | The topics related to the robot's wrist camera (RGB, depth)  |
 | `/tf` | Transform information (TF) for the robot's tool frames and camera frames relative to the base link |
 
 Referring to the Stage panel in Isaac Sim, key features here are as follows:
