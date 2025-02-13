@@ -53,7 +53,7 @@ The default control for the robot joints is position control. However, in cases 
 
 ## How to Run
 
-### 1. Open etri_dualarm_ros2_ctr.usd in Isaac Sim
+### Step 1. Open etri_dualarm_ros2_ctr.usd in Isaac Sim
 Launch the Isaac Sim and open etri_dualarm_ros2_ctr.usd(File -> Open). Then ETRI's dual hand-arm robot will appear in the Viewport. Start the simulation by pressing play button ( :arrow_forward: ). If the USD file loads correctly without any issues, you can see the list of topic messages in the terminal by using `ros2 topic list` command.
 | Topic name | Description |
 |---|:---:|
@@ -67,26 +67,28 @@ Referring to the Stage panel in Isaac Sim, key features here are as follows:
 - Please note that the robot in __etri_dualarm_ros2_ctr.usd__ is different from the robot in __etri_dualarm_robot.usd__, as we have tuned various parameter values such as Joint Drive Gains through trial and error.
 - As seen in the ActionGraph, __etri_dualarm_ros2_ctr.usd__ not only utilizes Omnigraph nodes for ROS 2 message communication but also controls the robot's joint positions using the Articulation Controller.
 
-### 2. Run the command message converter
+### Step 2. Run the command message converter
 After starting the simulation, you must run the command message converter. This is the ROS 2 node that convert `/joint_command` to `/joint_command_isaac` which is suitable joint commands for Isaac Sim.
 
 #### For 49 DOF position control:
 
-In case you want to run the command message converter for position contro run the following:
+If you want to run the command message converter for position control, use the following command:
 ```
 ros2 run etri_dualarm_cmd_msg_converter_sim run_both_arms_pos_ctrl
 ```
 
 #### For 7X2 DOF velocity control(two arms) + 35 DOF position control:
 
-In case you want to run the command message converter with velocity control for the arm joints only and position control for all other joints, first you need to know the control frequency clearly. Then, you must enter this control frequency value as the argument `hz` for the node. For example, if the control frequency is 30 Hz run the following:
+If you want to run the command message converter with velocity control for the arm joints only and position control for all other joints, you first need to determine the control frequency. Then, enter this frequency as the `hz` argument for the node. For example, if the control frequency is 30 Hz, run the following command:
 ```
 ros2 run etri_dualarm_cmd_msg_converter_sim run_both_arms_vel_ctrl hz:=30
 ```
 
-### 3. Commanding the robot
+### Step 3. Commanding the robot
 
-Now you're ready to move the robot! You can command the robot to move to the desired position by publishing to `/joint_command`. The following is an example of a command using `ros2 topic pub` to move the robot to a sample position. Try it and check if the robot moves in IsaacSim.
+Now you're ready to move the robot! You can control it by publishing to `/joint_command`. See [the definition of this message](https://github.com/DonghyungKim/ETRI-Dual-Hand-Arm-Robot/blob/main/docs/Topic_joint_command.md).
+
+The following is an example command using `ros2 topic pub` to move the robot to a sample position. Try it after running the command message converter for position control, and check if the robot moves in IsaacSim
 
 ```
 ros2 topic pub --once /joint_command sensor_msgs/msg/JointState
