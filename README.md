@@ -72,13 +72,35 @@ After starting the simulation, you must run the command message converter. This 
 
 ##### For 49 DOF position control:
 
-If you want to run the command message converter for position control:
+In case you want to run the command message converter for position contro run the following:
 ```
 ros2 run etri_dualarm_cmd_msg_converter_sim run_both_arms_pos_ctrl
 ```
+
+Now you can command the robot to move to the desired position by publishing to `/joint_command`. The following is an example command using `ros2 topic pub` to move the robot to a sample position. Try it and check if the robot moves in IsaacSim
+
+```
+ros2 topic pub --once /joint_command sensor_msgs/msg/JointState
+"{
+ name: [liftkit_extension,
+        head_pan_joint, head_tilt_joint,
+        left_arm_joint_1, left_arm_joint_2, left_arm_joint_3, left_arm_joint_4, left_arm_joint_5, left_arm_joint_6, left_arm_joint_7,
+        right_arm_joint_1, right_arm_joint_2, right_arm_joint_3, right_arm_joint_4, right_arm_joint_5, right_arm_joint_6, right_arm_joint_7,
+        left_hand_joint_0, left_hand_joint_1, left_hand_joint_2, left_hand_joint_3, left_hand_joint_4, left_hand_joint_5, left_hand_joint_6, left_hand_joint_7, left_hand_joint_8, left_hand_joint_9, left_hand_joint_10, left_hand_joint_11, left_hand_joint_12, left_hand_joint_13, left_hand_joint_14, left_hand_joint_15,
+        right_hand_joint_0, right_hand_joint_1, right_hand_joint_2, right_hand_joint_3, right_hand_joint_4, right_hand_joint_5, right_hand_joint_6, right_hand_joint_7, right_hand_joint_8, right_hand_joint_9, right_hand_joint_10, right_hand_joint_11, right_hand_joint_12, right_hand_joint_13, right_hand_joint_14, right_hand_joint_15], 
+ position: [0.4, 
+            0.0, 1.0557, 
+            1.274, 1.003, 0.119, 0.849, -0.323, 0.639, 0.254,
+            -1.308, 0.925, -0.119, 0.906, -2.836, -0.760, -0.357,
+            0.0, 0.0, 0.0, 0.0, 0.0, 1.551, 1.058, 1.448, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0,
+            0.0, 0.0, 0.0, 0.0, 0.0, 1.551, 1.058, 1.448, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0]
+}"
+```
+
+
 ##### For 7X2 DOF velocity control(two arms) + 35 DOF position control:
 
-If you want to run the command message converter with velocity control for the arm joints only and position control for all other joints, you need to know the control frequency clearly. Then, you must enter this control frequency value as the argument `hz` for the node. For example, if the control frequency is 30 Hz:
+In case you want to run the command message converter with velocity control for the arm joints only and position control for all other joints, first you need to know the control frequency clearly. Then, you must enter this control frequency value as the argument `hz` for the node. For example, if the control frequency is 30 Hz run the following:
 ```
 ros2 run etri_dualarm_cmd_msg_converter_sim run_both_arms_vel_ctrl hz:=30
 ```
