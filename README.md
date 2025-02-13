@@ -77,7 +77,7 @@ In case you want to run the command message converter for position contro run th
 ros2 run etri_dualarm_cmd_msg_converter_sim run_both_arms_pos_ctrl
 ```
 
-Now you can command the robot to move to the desired position by publishing to `/joint_command`. The following is an example command using `ros2 topic pub` to move the robot to a sample position. Try it and check if the robot moves in IsaacSim
+Now you can command the robot to move to the desired position by publishing to `/joint_command`. The following is an example command using `ros2 topic pub` to move the robot to a sample position. Try it and check if the robot moves in IsaacSim.
 
 ```
 ros2 topic pub --once /joint_command sensor_msgs/msg/JointState
