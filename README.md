@@ -54,7 +54,7 @@ The default control for the robot joints is position control. However, in cases 
 ## How to Run
 
 #### 1. Open etri_dualarm_ros2_ctr.usd in Isaac Sim
-Launch the Isaac Sim and open etri_dualarm_ros2_ctr.usd(File -> Open). Then ETRI's dual hand-arm robot will appear in the Viewport. Start the simulation by pressing play button ( :arrow_forward: ). If the USD file loads correctly without any issues, you can verify the list of topic messages in the terminal by using the `ros2 topic list` command.
+Launch the Isaac Sim and open etri_dualarm_ros2_ctr.usd(File -> Open). Then ETRI's dual hand-arm robot will appear in the Viewport. Start the simulation by pressing play button ( :arrow_forward: ). If the USD file loads correctly without any issues, you can see the list of topic messages in the terminal by using the `ros2 topic list` command.
 | Topic name | Description |
 |---|:---:|
 | `/joint_states_isaac` | The current state of the robot published by Isaac Sim. Please refer [this documentation](https://github.com/DonghyungKim/ETRI-Dual-Hand-Arm-Robot/blob/main/docs/Topic_joint_states_isaac.md) for the details.|
@@ -68,12 +68,15 @@ Referring to the Stage panel in Isaac Sim, key features here are as follows:
 - As seen in the ActionGraph, __etri_dualarm_ros2_ctr.usd__ not only utilizes Omnigraph nodes for ROS 2 message communication but also controls the robot's joint positions using the Articulation Controller.
 
 #### 2. Run the command message converter
-After tarting the simulation, you must run the command message converter. This is ROS 2 node that convert `/joint_command` to `/joint_command_isaac` which is suitable joint commands for Isaac Sim.
+After starting the simulation, you must run the command message converter. This is ROS 2 node that convert `/joint_command` to `/joint_command_isaac` which is suitable joint commands for Isaac Sim.
+
+##### For position control:
 
 If you want to run the command message converter for position control:
 ```
 ros2 run etri_dualarm_cmd_msg_converter_sim run_both_arms_pos_ctrl
 ```
+##### For velocity control for the arm joints only and position control for all other joints:
 
 If you want to run the command message converter with velocity control for the arm joints only and position control for all other joints, you need to know the control frequency clearly. Then, you must enter this control frequency value as the argument `hz` for the node. For example, if the control frequency is 30 Hz:
 ```
