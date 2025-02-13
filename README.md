@@ -86,7 +86,7 @@ ros2 run etri_dualarm_cmd_msg_converter_sim run_both_arms_vel_ctrl hz:=30
 
 ### Step 3. Commanding the robot
 
-Now you're ready to move the robot! You can control it by publishing to `/joint_command`. See [the definition of this message](https://github.com/DonghyungKim/ETRI-Dual-Hand-Arm-Robot/blob/main/docs/Topic_joint_command.md).
+Now you're ready to move the robot! You can control the robot by publishing to `/joint_command`. See [the definition of this message](https://github.com/DonghyungKim/ETRI-Dual-Hand-Arm-Robot/blob/main/docs/Topic_joint_command.md).
 
 The following is an example command using `ros2 topic pub` to move the robot to a sample position. Try it after running the command message converter for position control, and check if the robot moves in IsaacSim
 
