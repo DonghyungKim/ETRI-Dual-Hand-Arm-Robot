@@ -70,13 +70,13 @@ Referring to the Stage panel in Isaac Sim, key features here are as follows:
 #### 2. Run the command message converter
 After starting the simulation, you must run the command message converter. This is ROS 2 node that convert `/joint_command` to `/joint_command_isaac` which is suitable joint commands for Isaac Sim.
 
-##### For position control:
+##### For 49 DOF position control:
 
 If you want to run the command message converter for position control:
 ```
 ros2 run etri_dualarm_cmd_msg_converter_sim run_both_arms_pos_ctrl
 ```
-##### For velocity control for the arm joints only and position control for all other joints:
+##### For 7X2 DOF velocity control(two arms) + 35 DOF position control:
 
 If you want to run the command message converter with velocity control for the arm joints only and position control for all other joints, you need to know the control frequency clearly. Then, you must enter this control frequency value as the argument `hz` for the node. For example, if the control frequency is 30 Hz:
 ```
@@ -90,7 +90,7 @@ Now you're ready to move the robot! Try running the sample code before writing y
 
 After running Isaac Sim and the command message converter, let's execute the following sample code based on the type of converter.
 
-#### For 49 DOF position control
+#### For 49 DOF position control:
 The following node makes the robot's joint positions move in a sinusoidal pattern.
 ```
 ros2 run sample_etri_dualarm_ctr sample_sinusoidal_joint_pos_ctrl
@@ -100,7 +100,7 @@ The following node makes the robot move through a sequence of 5 joint positions 
 ros2 run sample_etri_dualarm_ctr sample_sequence_joint_pos_ctr
 ```
 
-#### For 7X2 DOF velocity control(two arms) + 35 DOF position control
+#### For 7X2 DOF velocity control(two arms) + 35 DOF position control:
 The following node also moves the robot's joint positions in a sinusoidal pattern, but sends a velocity command instead.
 ```
 ros2 run sample_etri_dualarm_ctr sample_sinusoidal_arm_vel_ctrl 
