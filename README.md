@@ -88,24 +88,22 @@ ros2 run etri_dualarm_cmd_msg_converter_sim run_both_arms_vel_ctrl hz:=30
 
 Now you're ready to move the robot! You can control the robot by publishing to `/joint_command`. See [the definition of this message](https://github.com/DonghyungKim/ETRI-Dual-Hand-Arm-Robot/blob/main/docs/Topic_joint_command.md).
 
-The following is an example command using `ros2 topic pub` to move the robot to a sample position. Try it after running the command message converter for position control, and check if the robot moves in IsaacSim
+The following is an example command using `ros2 topic pub` to move the robot to a sample position. Try it after running the command message converter for position control, and check if the robot moves in IsaacSim.
 
 ```
-ros2 topic pub --once /joint_command sensor_msgs/msg/JointState
-"{
- name: [liftkit_extension,
+ros2 topic pub --once /joint_command sensor_msgs/msg/JointState \
+"{name: [liftkit_extension,
         head_pan_joint, head_tilt_joint,
         left_arm_joint_1, left_arm_joint_2, left_arm_joint_3, left_arm_joint_4, left_arm_joint_5, left_arm_joint_6, left_arm_joint_7,
         right_arm_joint_1, right_arm_joint_2, right_arm_joint_3, right_arm_joint_4, right_arm_joint_5, right_arm_joint_6, right_arm_joint_7,
         left_hand_joint_0, left_hand_joint_1, left_hand_joint_2, left_hand_joint_3, left_hand_joint_4, left_hand_joint_5, left_hand_joint_6, left_hand_joint_7, left_hand_joint_8, left_hand_joint_9, left_hand_joint_10, left_hand_joint_11, left_hand_joint_12, left_hand_joint_13, left_hand_joint_14, left_hand_joint_15,
         right_hand_joint_0, right_hand_joint_1, right_hand_joint_2, right_hand_joint_3, right_hand_joint_4, right_hand_joint_5, right_hand_joint_6, right_hand_joint_7, right_hand_joint_8, right_hand_joint_9, right_hand_joint_10, right_hand_joint_11, right_hand_joint_12, right_hand_joint_13, right_hand_joint_14, right_hand_joint_15], 
- position: [0.4, 
+position: [0.4, 
             0.0, 1.0557, 
             1.274, 1.003, 0.119, 0.849, -0.323, 0.639, 0.254,
             -1.308, 0.925, -0.119, 0.906, -2.836, -0.760, -0.357,
             0.0, 0.0, 0.0, 0.0, 0.0, 1.551, 1.058, 1.448, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0,
-            0.0, 0.0, 0.0, 0.0, 0.0, 1.551, 1.058, 1.448, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0]
-}"
+            0.0, 0.0, 0.0, 0.0, 0.0, 1.551, 1.058, 1.448, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0]}"
 ```
 
 ## Run Sample code (ROS 2 package)
