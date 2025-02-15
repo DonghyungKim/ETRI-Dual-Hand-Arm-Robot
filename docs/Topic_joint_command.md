@@ -1,14 +1,13 @@
 ## Topic Message Details 
 
-#### Name: /joint_command
+### Name: /joint_command
 
 ### Type: [sensor_msgs/msg/JointState](https://docs.ros2.org/latest/api/sensor_msgs/msg/JointState.html)
-
 - For 49 DOF position control, only the joint positions in the control command are valid for all joints.
 - For 7X2 DOF velocity control(two arms) + 35 DOF position control, only the joint velocities in the control command are valid for the arm joints, while the joint positions remain valid for for all other joints.
 - Effort is not used.
 
-#### Raw Message Definition
+### Raw Message Definition
 
 | Number | Data type | Name | Description |
 |---|---|---|---|
