@@ -12,10 +12,10 @@ Here the current state of each joint (revolute or prismatic) is defined by:
 
 | Number | Name | Hardware component | Description |
 |---|---|---|---|
-| 1 | ewellix_lift_top_joint | Lifting column | Upper lift joint displacement |
-| 2 | ewellix_lift_top2_joint | Lifting column | Lower lift joint displacement |
-| 3 | pan_joint | Pan and tilt system | Pan joint angle |
-| 4 | tilt_joint | Pan and tilt system | Tilt joint angle |
+| 1 | ewellix_lift_top_joint | Lifting column | Joint state of lower part of the lifting column |
+| 2 | ewellix_lift_top2_joint | Lifting column | Joint state of upper part of the lifting column |
+| 3 | pan_joint | Pan and tilt system | Pan joint state |
+| 4 | tilt_joint | Pan and tilt system | Tilt joint state |
 | 5 | left_joint_1 | Left arm | Left arm joint 1 state |
 | 6 | left_joint_2 | Left arm | Left arm joint 2 state |
 | 7 | left_joint_3 | Left arm | Left arm joint 3 state |
