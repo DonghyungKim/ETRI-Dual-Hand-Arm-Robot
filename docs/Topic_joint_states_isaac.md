@@ -12,52 +12,53 @@ Here the current state of each joint (revolute or prismatic) is defined by:
 
 | Number | Name | Hardware component | Description |
 |---|---|---|---|
-| 1 | liftkit_extension | Lifting column | Desired vertical position of a lifting column  |
-| 2 | head_pan_joint | Pan and tilt system | Desired position of pan joint |
-| 3 | head_tilt_joint | Pan and tilt system | Desired position of tilt joint  |
-| 4 | left_arm_joint_1 | Left arm | Desired position or velocity of the left arm joint 1 |
-| 5 | left_arm_joint_2 | Left arm | Desired position or velocity of the left arm joint 2 |
-| 6 | left_arm_joint_3 | Left arm | Desired position or velocity of the left arm joint 3 |
-| 7 | left_arm_joint_4 | Left arm | Desired position or velocity of the left arm joint 4 |
-| 8 | left_arm_joint_5 | Left arm | Desired position or velocity of the left arm joint 5 |
-| 9 | left_arm_joint_6 | Left arm | Desired position or velocity of the left arm joint 6 |
-| 10 | left_arm_joint_7 | Left arm | Desired position or velocity of the left arm joint 7 |
-| 11 | right_arm_joint_1 | Right arm | Desired position or velocity of the right arm joint 1 |
-| 12 | right_arm_joint_2 | Right arm | Desired position or velocity of the right arm joint 2 |
-| 13 | right_arm_joint_3 | Right arm | Desired position or velocity of the right arm joint 3 |
-| 14 | right_arm_joint_4 | Right arm | Desired position or velocity of the right arm joint 4 |
-| 15 | right_arm_joint_5 | Right arm | Desired position or velocity of the right arm joint 5 |
-| 16 | right_arm_joint_6 | Right arm | Desired position or velocity of the right arm joint 6 |
-| 17 | right_arm_joint_7 | Right arm | Desired position or velocity of the right arm joint 7 |
-| 18 | left_hand_joint_0 | Left hand | Desired position of the left hand joint 0 (or index finger joint 0) |
-| 19 | left_hand_joint_1 | Left hand | Desired position of the left hand joint 1 (or index finger joint 1) |
-| 20 | left_hand_joint_2 | Left hand | Desired position of the left hand joint 2 (or index finger joint 2) |
-| 21 | left_hand_joint_3 | Left hand | Desired position of the left hand joint 3 (or index finger joint 3) |
-| 22 | left_hand_joint_4 | Left hand | Desired position of the left hand joint 4 (or middle finger joint 0) |
-| 23 | left_hand_joint_5 | Left hand | Desired position of the left hand joint 5 (or middle finger joint 1) |
-| 24 | left_hand_joint_6 | Left hand | Desired position of the left hand joint 6 (or middle finger joint 2) |
-| 25 | left_hand_joint_7 | Left hand | Desired position of the left hand joint 7 (or middle finger joint 3) |
-| 26 | left_hand_joint_8 | Left hand | Desired position of the left hand joint 8 (or pinky joint 0) |
-| 27 | left_hand_joint_9 | Left hand | Desired position of the left hand joint 9 (or pinky joint 1) |
-| 28 | left_hand_joint_10 | Left hand | Desired position of the left hand joint 10 (or pinky joint 2) |
-| 29 | left_hand_joint_11 | Left hand | Desired position of the left hand joint 11 (or pinky joint 3) |
-| 30 | left_hand_joint_12 | Left hand | Desired position of the left hand joint 12 (or thumb joint 0) |
-| 31 | left_hand_joint_13 | Left hand | Desired position of the left hand joint 13 (or thumb joint 1) |
-| 32 | left_hand_joint_14 | Left hand | Desired position of the left hand joint 14 (or thumb joint 2) |
-| 33 | left_hand_joint_15 | Left hand | Desired position of the left hand joint 15 (or thumb joint 3) |
-| 34 | right_hand_joint_0 | Right hand | Desired position of the right hand joint 0 (or index finger joint 0) |
-| 35 | right_hand_joint_1 | Right hand | Desired position of the right hand joint 1 (or index finger joint 1) |
-| 36 | right_hand_joint_2 | Right hand | Desired position of the right hand joint 2 (or index finger joint 2) |
-| 37 | right_hand_joint_3 | Right hand | Desired position of the right hand joint 3 (or index finger joint 3) |
-| 38 | right_hand_joint_4 | Right hand | Desired position of the right hand joint 4 (or middle finger joint 0) |
-| 39 | right_hand_joint_5 | Right hand | Desired position of the right hand joint 5 (or middle finger joint 1) |
-| 40 | right_hand_joint_6 | Right hand | Desired position of the right hand joint 6 (or middle finger joint 2) |
-| 41 | right_hand_joint_7 | Right hand | Desired position of the right hand joint 7 (or middle finger joint 3) |
-| 42 | right_hand_joint_8 | Right hand | Desired position of the right hand joint 8 (or pinky joint 0) |
-| 43 | right_hand_joint_9 | Right hand | Desired position of the right hand joint 9 (or pinky joint 1) |
-| 44 | right_hand_joint_10 | Right hand | Desired position of the right hand joint 10 (or pinky joint 2) |
-| 45 | right_hand_joint_11 | Right hand | Desired position of the right hand joint 11 (or pinky joint 3) |
-| 46 | right_hand_joint_12 | Right hand | Desired position of the right hand joint 12 (or thumb joint 0) |
-| 47 | right_hand_joint_13 | Right hand | Desired position of the right hand joint 13 (or thumb joint 1) |
-| 48 | right_hand_joint_14 | Right hand | Desired position of the right hand joint 14 (or thumb joint 2) |
-| 49 | right_hand_joint_15 | Right hand | Desired position of the right hand joint 15 (or thumb joint 3) |
+| 1 | ewellix_lift_top_joint | Lifting column | Upper lift joint displacement |
+| 2 | ewellix_lift_top2_joint | Lifting column | Lower lift joint displacement |
+| 3 | pan_joint | Pan and tilt system | Pan joint angle |
+| 4 | tilt_joint | Pan and tilt system | Tilt joint angle |
+| 5 | left_joint_1 | Left arm | Left arm joint 1 state |
+| 6 | left_joint_2 | Left arm | Left arm joint 2 state |
+| 7 | left_joint_3 | Left arm | Left arm joint 3 state |
+| 8 | left_joint_4 | Left arm | Left arm joint 4 state |
+| 9 | left_joint_5 | Left arm | Left arm joint 5 state |
+| 10 | left_joint_6 | Left arm | Left arm joint 6 state |
+| 11 | left_joint_7 | Left arm | Left arm joint 7 state |
+| 12 | right_joint_1 | Right arm | Right arm joint 1 state |
+| 13 | right_joint_2 | Right arm | Right arm joint 2 state |
+| 14 | right_joint_3 | Right arm | Right arm joint 3 state |
+| 15 | right_joint_4 | Right arm | Right arm joint 4 state |
+| 16 | right_joint_5 | Right arm | Right arm joint 5 state |
+| 17 | right_joint_6 | Right arm | Right arm joint 6 state |
+| 18 | right_joint_7 | Right arm | Right arm joint 7 state |
+| 19 | left_hand_joint_0 | Left hand | Left hand joint 0 (or index finger joint 0) state |
+| 20 | left_hand_joint_1 | Left hand | Left hand joint 1 (or index finger joint 1) state |
+| 21 | left_hand_joint_2 | Left hand | Left hand joint 2 (or index finger joint 2) state |
+| 22 | left_hand_joint_3 | Left hand | Left hand joint 3 (or index finger joint 3) state |
+| 23 | left_hand_joint_4 | Left hand | Left hand joint 4 (or middle finger joint 0) state |
+| 24 | left_hand_joint_5 | Left hand | Left hand joint 5 (or middle finger joint 1) state |
+| 25 | left_hand_joint_6 | Left hand | Left hand joint 6 (or middle finger joint 2) state |
+| 26 | left_hand_joint_7 | Left hand | Left hand joint 7 (or middle finger joint 3) state |
+| 27 | left_hand_joint_8 | Left hand | Left hand joint 8 (or pinky joint 0) state |
+| 28 | left_hand_joint_9 | Left hand | Left hand joint 9 (or pinky joint 1) state |
+| 29 | left_hand_joint_10 | Left hand | Left hand joint 10 (or pinky joint 2) state |
+| 30 | left_hand_joint_11 | Left hand | Left hand joint 11 (or pinky joint 3) state |
+| 31 | left_hand_joint_12 | Left hand | Left hand joint 12 (or thumb joint 0) state |
+| 32 | left_hand_joint_13 | Left hand | Left hand joint 13 (or thumb joint 1) state |
+| 33 | left_hand_joint_14 | Left hand | Left hand joint 14 (or thumb joint 2) state |
+| 34 | left_hand_joint_15 | Left hand | Left hand joint 15 (or thumb joint 3) state |
+| 35 | right_hand_joint_0 | Right hand | Right hand joint 0 (or index finger joint 0) state |
+| 36 | right_hand_joint_1 | Right hand | Right hand joint 1 (or index finger joint 1) state |
+| 37 | right_hand_joint_2 | Right hand | Right hand joint 2 (or index finger joint 2) state |
+| 38 | right_hand_joint_3 | Right hand | Right hand joint 3 (or index finger joint 3) state |
+| 39 | right_hand_joint_4 | Right hand | Right hand joint 4 (or middle finger joint 0) state |
+| 40 | right_hand_joint_5 | Right hand | Right hand joint 5 (or middle finger joint 1) state |
+| 41 | right_hand_joint_6 | Right hand | Right hand joint 6 (or middle finger joint 2) state |
+| 42 | right_hand_joint_7 | Right hand | Right hand joint 7 (or middle finger joint 3) state |
+| 43 | right_hand_joint_8 | Right hand | Right hand joint 8 (or pinky joint 0) state |
+| 44 | right_hand_joint_9 | Right hand | Right hand joint 9 (or pinky joint 1) state |
+| 45 | right_hand_joint_10 | Right hand | Right hand joint 10 (or pinky joint 2) state |
+| 46 | right_hand_joint_11 | Right hand | Right hand joint 11 (or pinky joint 3) state |
+| 47 | right_hand_joint_12 | Right hand | Right hand joint 12 (or thumb joint 0) state |
+| 48 | right_hand_joint_13 | Right hand | Right hand joint 13 (or thumb joint 1) state |
+| 49 | right_hand_joint_14 | Right hand | Right hand joint 14 (or thumb joint 2) state |
+| 50 | right_hand_joint_15 | Right hand | Right hand joint 15 (or thumb joint 3) state |
