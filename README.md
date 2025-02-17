@@ -68,8 +68,7 @@ Launch the Isaac Sim and open etri_dualarm_ros2_ctr.usd(File -> Open). Then ETRI
   - Controller: Handles robot joint state feedback and control.
   - Cameras: Publishes camera-related messages.
   - TFs: Publishes TF (Transformation) messages.
-* If the topic messages listed above do not appear, check whether *UseDomain ID Env Var* is unchecked in the ROS2 Context Node within the Action Graphs. If it is unchecked and you are using a *domain_id* different from your environment's `ROS_DOMAIN_ID`, all ROS 2 nodes in Isaac Sim may fail to be discovered. For more details on ROS 2 domain ID issues, see [this guide](https://docs.isaacsim.omniverse.nvidia.com/latest/ros2_tutorials/tutorial_ros2_drive_turtlebot.html).
-
+* If the topic messages listed above do not appear, check whether *UseDomain ID Env Var* is unchecked in the ROS2 Context Node within the Action Graphs. If it is unchecked and you are using a *domain_id* different from your environment's `ROS_DOMAIN_ID`, all ROS 2 nodes in Isaac Sim may fail to be discovered. For more details on ROS 2 domain ID issues, read *Graph Explained* [here](https://docs.isaacsim.omniverse.nvidia.com/latest/ros2_tutorials/tutorial_ros2_drive_turtlebot.html).
 
 ### Step 2. Run the command message converter
 After starting the simulation, you must run the command message converter. This is the ROS 2 node that convert `/joint_command` to `/joint_command_isaac` which is suitable joint commands for Isaac Sim.
