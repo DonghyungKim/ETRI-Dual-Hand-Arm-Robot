@@ -63,9 +63,13 @@ Launch the Isaac Sim and open etri_dualarm_ros2_ctr.usd(File -> Open). Then ETRI
 | `/left_wrist_camera/color/camera_info`, `/left_wrist_camera/color/image_raw`, `/left_wrist_camera/depth/camera_info`, `/left_wrist_camera/depth/image_raw`, `/right_wrist_camera/color/camera_info`, `/right_wrist_camera/color/image_raw`, `/right_wrist_camera/depth/camera_info`, `/right_wrist_camera/depth/image_raw` | The topics related to the robot's wrist camera (RGB, depth)  |
 | `/tf` | Transform information (TF) for the robot's tool frames and camera frames relative to the base link |
 
-Referring to the Stage panel in Isaac Sim, key features here are as follows:
-- Please note that the robot in __etri_dualarm_ros2_ctr.usd__ is different from the robot in __etri_dualarm_robot.usd__, as we have tuned various parameter values such as Joint Drive Gains through trial and error.
-- As seen in the ActionGraph, __etri_dualarm_ros2_ctr.usd__ not only utilizes Omnigraph nodes for ROS 2 message communication but also controls the robot's joint positions using the Articulation Controller.
+* Please note that the robot in __etri_dualarm_ros2_ctr.usd__ is different from the robot in __etri_dualarm_robot.usd__, as I have refined various parameter values, including Joint Drive Gains, through trial and error.
+* In IsaacSim's Stage panel, the Controller, Cameras, and TFs under the etri_dualarm_robot are Action Graphs responsible for the following:
+  - Controller: Handles robot joint state feedback and control.
+  - Cameras: Publishes camera-related messages.
+  - TFs: Publishes TF (Transformation) messages.
+* If the topic messages listed above do not appear, check whether *UseDomain ID Env Var* is unchecked in the ROS2 Context Node within the Action Graphs. If it is unchecked and you are using a *domain_id* different from your environment's `ROS_DOMAIN_ID`, all ROS 2 nodes in Isaac Sim may fail to be discovered. For more details on ROS 2 domain ID issues, see [this guide](https://docs.isaacsim.omniverse.nvidia.com/latest/ros2_tutorials/tutorial_ros2_drive_turtlebot.html).
+
 
 ### Step 2. Run the command message converter
 After starting the simulation, you must run the command message converter. This is the ROS 2 node that convert `/joint_command` to `/joint_command_isaac` which is suitable joint commands for Isaac Sim.
