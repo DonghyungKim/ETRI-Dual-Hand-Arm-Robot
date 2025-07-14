@@ -11,7 +11,7 @@ This repository provides USD files and ROS 2 packages for ETRI's dual hand-arm r
 
 Intermediate or higher-level skills in both ROS 2 and Isaac Sim are required. And here is the version of ROS 2 and Isaac Sim that we used:
 
-#### NVIDIA Omniverse / Isaac Sim
+#### NVIDIA Isaac Sim
 - Isaac Sim 4.5.0
 #### ROS
 - ROS 2 Humble Hawksbill (Ubuntu 22.04.4 LTS)
@@ -146,13 +146,14 @@ etri_dualarm_simple_room_example.usd
 
 #### Changing the environment and adding the objects
 
-Let's use the simple room from the [Environment Assets](https://docs.omniverse.nvidia.com/isaacsim/latest/features/environment_setup/assets/usd_assets_environments.html). In version 2023.1.1, the USD file path for the simple room is as follows. Delete the default environment and add the simple room. Then, change the position and orientation of the robot and the room as you want.
+Let's use the simple room from the [Environment Assets](https://docs.isaacsim.omniverse.nvidia.com/4.5.0/assets/usd_assets_environments.html). Isaac Sim 4.5 no longer uses omniverse:// paths. Instead, use the Asset Browser to add environments and objects. For example, search for simple_room.usd in the Asset Browser. The file can be found in the following path:
 ```
-omniverse://localhost/NVIDIA/Assets/Isaac/2023.1.1/Isaac/Environments/Simple_Room/simple_room.usd
+Environments/
 ```
-Let's add objects like [YCB objects](https://www.ycbbenchmarks.com/object-set/) to the simple room. The following is the path to the USD file.
+
+You can also add objects such as [YCB objects](https://www.ycbbenchmarks.com/object-set/) to the simple room. These can be found in:
 ```
-omniverse://localhost/NVIDIA/Assets/Isaac/2023.1.1/Isaac/Props/YCB/
+Props/YCB/
 ```
 Here are examples of using various environments from Isaac Sim's assets, including the simple room.
 <center><img src="https://github.com/DonghyungKim/ETRI-Dual-Hand-Arm-Robot/blob/main/docs/example_environments.jpg" width="990" height="176"/></center>
