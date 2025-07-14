@@ -12,8 +12,7 @@ This repository provides USD files and ROS 2 packages for ETRI's dual hand-arm r
 Intermediate or higher-level skills in both ROS 2 and Isaac Sim are required. And here is the version of ROS 2 and Isaac Sim that we used:
 
 #### NVIDIA Omniverse / Isaac Sim
-- Omniverse Launcher 1.9.14
-- Isaac Sim 2023.1.1
+- Isaac Sim 4.5.0
 #### ROS
 - ROS 2 Humble Hawksbill (Ubuntu 22.04.4 LTS)
 
