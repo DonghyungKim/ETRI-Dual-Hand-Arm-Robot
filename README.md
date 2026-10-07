@@ -12,11 +12,11 @@ This repository provides USD files and ROS 2 packages for ETRI's dual hand-arm r
 Intermediate or higher-level skills in both ROS 2 and Isaac Sim are required. And here is the version of ROS 2 and Isaac Sim that we used:
 
 #### NVIDIA Isaac Sim
-- Isaac Sim 4.5.0
+- Isaac Sim 5.1.0
 #### ROS
 - ROS 2 Humble Hawksbill (Ubuntu 22.04.4 LTS)
 
-*NOTE:  It is recommended to perform ['ROS and ROS 2 Installation for Isaac Sim'](https://docs.omniverse.nvidia.com/isaacsim/latest/installation/install_ros.html) in advance to ensure Isaac Sim's compatibility with ROS 2.
+*NOTE:  It is recommended to perform ['ROS and ROS 2 Installation for Isaac Sim'](https://docs.isaacsim.omniverse.nvidia.com/5.1.0/installation/install_ros.html) in advance to ensure Isaac Sim's compatibility with ROS 2.
 
 ## Installation
 Clone this git repository using the command line or download zip.
@@ -67,7 +67,7 @@ Launch the Isaac Sim and open etri_dualarm_ros2_ctr.usd(File -> Open). Then ETRI
   - Controller: Handles robot joint state feedback and control.
   - Cameras: Publishes camera-related messages.
   - TFs: Publishes TF (Transformation) messages.
-* If the topic messages listed above do not appear, check whether *UseDomain ID Env Var* is unchecked in the ROS2 Context Node within the Action Graphs. If it is unchecked and you are using a *domain_id* different from your environment's `ROS_DOMAIN_ID`, all ROS 2 nodes in Isaac Sim may fail to be discovered. For more details on ROS 2 domain ID issues, read *Graph Explained* [here](https://docs.isaacsim.omniverse.nvidia.com/latest/ros2_tutorials/tutorial_ros2_drive_turtlebot.html).
+* If the topic messages listed above do not appear, check whether *UseDomain ID Env Var* is unchecked in the ROS2 Context Node within the Action Graphs. If it is unchecked and you are using a *domain_id* different from your environment's `ROS_DOMAIN_ID`, all ROS 2 nodes in Isaac Sim may fail to be discovered. For more details on ROS 2 domain ID issues, read *Graph Explained* [here](https://docs.isaacsim.omniverse.nvidia.com/5.1.0/ros2_tutorials/tutorial_ros2_drive_turtlebot.html).
 
 ### Step 2. Run the command message converter
 After starting the simulation, you must run the command message converter. This is the ROS 2 node that convert `/joint_command` to `/joint_command_isaac` which is suitable joint commands for Isaac Sim.
@@ -146,7 +146,7 @@ etri_dualarm_simple_room_example.usd
 
 #### Changing the environment and adding the objects
 
-Let's use the simple room from the [Environment Assets](https://docs.isaacsim.omniverse.nvidia.com/4.5.0/assets/usd_assets_environments.html). Isaac Sim 4.5 no longer uses omniverse:// paths. Instead, use the Asset Browser to add environments and objects. For example, search for simple_room.usd in the Asset Browser. The file can be found in the following path:
+Let's use the simple room from the [Environment Assets](https://docs.isaacsim.omniverse.nvidia.com/5.1.0/assets/usd_assets_environments.html). Isaac Sim 5.1 does not use omniverse:// paths. Instead, use the Asset Browser to add environments and objects. For example, search for simple_room.usd in the Asset Browser. The file can be found in the following path:
 ```
 Environments/
 ```
