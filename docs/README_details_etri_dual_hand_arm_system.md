@@ -16,11 +16,11 @@ The transforms of important links of the robot, such as the tool frame, the root
 
 | Frame ID  |  Xform in the stage panel | the Stage Tre Description |
 |---|---|---|
-| `lift_base_link` | etri_dualarm_robot &rarr; lift_base_link | The robot's base frame. It is located at the geometric center on bottom of the lifting column |
-| `left_tool_frame`, `right_tool_frame` | etri_dualarm_robot &rarr; left_tool_frame and etri_dualarm_robot &rarr; right_tool_frame | The tool frame for each arm relative to `lift_base_link` |
-| `left_hand_root`, `right_hand_root` | etri_dualarm_robot &rarr; left_hand_root and etri_dualarm_robot &rarr; right_hand_root | The root frame for each hand relative to `lift_base_link` |
+| `lift_base_link` | etri_dualarm_robot &rarr; base &rarr; lift_base_link | The robot's base frame. It is located at the geometric center on bottom of the lifting column |
+| `left_tool_frame`, `right_tool_frame` | etri_dualarm_robot &rarr; left_arm &rarr; left_tool_frame and etri_dualarm_robot &rarr; right_arm &rarr; right_tool_frame | The tool frame for each arm relative to `lift_base_link` |
+| `left_hand_root`, `right_hand_root` | etri_dualarm_robot &rarr; left_hand &rarr; left_hand_root and etri_dualarm_robot &rarr; right_hand &rarr; right_hand_root | The root frame for each hand relative to `lift_base_link` |
 | `head_camera:color`, `head_camera:depth` | etri_dualarm_robot &rarr; rsd455 &rarr; RSD455 &rarr; Visual &rarr; Camera_OmniVision_OV9782_Color and etri_dualarm_robot &rarr; rsd455 &rarr; RSD455 &rarr; Camera_Pseudo_Depth | The head camera's frame for RGB sensor and depth sensor relative to `lift_base_link` |
-| `left_camera_color_frame`, `left_camera_depth_frame`, `right_camera_color_frame`, `right_camera_depth_frame` | etri_dualarm_robot &rarr; left_camera_color_frame, etri_dualarm_robot &rarr; left_camera_depth_frame, etri_dualarm_robot &rarr; right_camera_color_frame, etri_dualarm_robot &rarr; right_camera_depth_frame | The wrist camera's frame for RGB sensor and depth sensor relative to `lift_base_link` |
+| `left_camera_color_frame`, `left_camera_depth_frame`, `right_camera_color_frame`, `right_camera_depth_frame` | etri_dualarm_robot &rarr; left_arm &rarr; left_camera_color_frame, etri_dualarm_robot &rarr; left_arm &rarr; left_camera_depth_frame, etri_dualarm_robot &rarr; right_arm &rarr; right_camera_color_frame, etri_dualarm_robot &rarr; right_arm &rarr; right_camera_depth_frame | The wrist camera's frame for RGB sensor and depth sensor relative to `lift_base_link` |
 
 ![Frames](https://github.com/DonghyungKim/ETRI-Dual-Hand-Arm-Robot/blob/main/docs/robot_frames.jpg)
 
